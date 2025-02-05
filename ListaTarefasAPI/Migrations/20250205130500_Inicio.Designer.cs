@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ListaTarefasAPI.Migrations
 {
     [DbContext(typeof(ListaTarefasContext))]
-    [Migration("20250205120316_Inicio")]
+    [Migration("20250205130500_Inicio")]
     partial class Inicio
     {
         /// <inheritdoc />

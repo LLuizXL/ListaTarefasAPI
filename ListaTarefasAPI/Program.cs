@@ -3,10 +3,20 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Adicionar e configurar o CORS(Cros-Origin Resource Sharing)  para permitir que a API seja acessada por qualquer origem.
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
+
 // Add services to the container.
 
 builder.Services.AddDbContext<ListaTarefasContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ListaTarefasContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
